@@ -11,3 +11,4 @@ pong:
 
 clean:
 	rm Main *.o
+	rm -rf .vscode

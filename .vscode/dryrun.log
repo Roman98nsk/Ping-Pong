@@ -1,6 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory '/home/roman/Pong'
-gcc -Wall -Wextra -Werror -c Pong_main.c
-gcc -o Main Pong_main.o
-make: Leaving directory '/home/roman/Pong'
- 
