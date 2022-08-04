@@ -1,6 +1,6 @@
 # Ping-Pong
 
-Compile project
+##Compile project
   You need clone this repository on you local:
     1)For Unux system "git clone <link>".
     2)For Windows:
