@@ -1,7 +1,7 @@
+<img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 # Ping-Pong
 
-<img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
-## Compile and launch project
+<h3 align="center">Compile and launch project</h3>
   You need clone this repository on you local:
     1)For Unux system "git clone <link>".
     2)For Windows:
@@ -12,9 +12,3 @@
     1)For Unix system "Make"
                       "../build/./Main"
     2)For Windows:
-    
-    
-
-
-<h3 align="center">Computer science student, IT news writer from Russia 🇷🇺</h3>
-                     
