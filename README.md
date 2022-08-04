@@ -15,6 +15,6 @@
   <p>Input into terminal:<br>
     <ol>
       <li>For Unix system "Make"<br>
-                          <p>"../build/./Main"<br>
+                          <p margin-left:20px>"../build/./Main"<br>
       <li>For Windows:
     </ol>
