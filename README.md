@@ -4,7 +4,7 @@
 <h3 align="center">Compile and launch project</h3>
   <p>You need clone this repository on you local:<br>
     <ol>  
-      <li>For Unux system "git clone <link>".</li>
+      <li>For Unux system "git clone 'link'".</li>
       <li>For Windows:</li>
     </ol>
   <p>Next step open directory "src":<br>
