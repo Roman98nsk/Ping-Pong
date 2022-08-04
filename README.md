@@ -2,13 +2,13 @@
 # Ping-Pong
 
 <h3 align="center">Compile and launch project</h3>
-  You need clone this repository on you local:
+  <p>You need clone this repository on you local:<br>
     1)For Unux system "git clone <link>".
     2)For Windows:
-  Next step open directory "src":
+  <p>Next step open directory "src":<br>
     1)For Unix system "cd src".
     2)For Windows:
-  Input into terminal:
+  <p>Input into terminal:<br>
     1)For Unix system "Make"
                       "../build/./Main"
     2)For Windows:
