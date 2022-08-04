@@ -14,7 +14,7 @@
     </ol>
   <p>Input into terminal:<br>
     <ol>
-      <li>For Unix system "Make"
-                          "../build/./Main"
+      <li>For Unix system "Make"<br>
+                          <p>"../build/./Main"<br>
       <li>For Windows:
     </ol>
