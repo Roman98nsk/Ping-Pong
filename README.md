@@ -3,12 +3,18 @@
 
 <h3 align="center">Compile and launch project</h3>
   <p>You need clone this repository on you local:<br>
-    1)For Unux system "git clone <link>".
-    2)For Windows:
+    <ol>  
+      <li>For Unux system "git clone <link>".</li>
+      <li>For Windows:</li>
+    </ol>
   <p>Next step open directory "src":<br>
-    1)For Unix system "cd src".
-    2)For Windows:
+    <ol>
+      <li>For Unix system "cd src".</li>
+      <li>For Windows:</li>
+    </ol>
   <p>Input into terminal:<br>
-    1)For Unix system "Make"
-                      "../build/./Main"
-    2)For Windows:
+    <ol>
+      <li>For Unix system "Make"
+                          "../build/./Main"
+      <li>For Windows:
+    </ol>
