@@ -1,6 +1,6 @@
 **************Color*****************
 
-End - <color-code>\x1B[0m"
+End - <color-code> <value> \x1B[0m"
 
 RED - "\x1B[31m
 GREEN - "\x1B[32m
@@ -15,6 +15,6 @@ WHITE - "\x1B[37m
 
 ************Clean screen************
 
-printf("\033[2J");
+\033[2J
 
 ************************************

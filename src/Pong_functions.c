@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "Pong_functions.h"
-
+      
 int score(int score_left_player, int score_right_player) {
     if (score_left_player != 1 || score_right_player != 1) {
         printf("\t\t%d : %d", score_left_player, score_right_player);
         printf("\n    \"Left_player\" : \"Right_player\"\n");
     }
-        
+
     if (score_left_player == 1) {
         printf("\n\033[1;32mCONGRATULATION!!! LEFT PLAYER IS WON. SCORE %d : %d.\033[0m\n\n", score_left_player, score_right_player);
         return 1;
