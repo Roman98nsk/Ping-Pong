@@ -7,14 +7,14 @@
       <li>For Unux system: $ git clone 'link-repository'.</li>
       <li>For Windows:</li>
     </ol>
-  <p>Next step open directory "src":<br>
+  <p>Next step open directory "Ping-Pong":<br>
     <ol>
-      <li>For Unix system: $ cd src.</li>
+      <li>For Unix system: $ cd Ping-Pong.</li>
       <li>For Windows:</li>
     </ol>
   <p>Input into terminal:<br>
     <ol>
-      <li>For Unix system: $ Make<br>
-                       <p>"$ ../build/./Main"<br>
+      <li>For Unix system: $ make<br>
+                       <p>"$ build/Main"<br>
       <li>For Windows:
     </ol>
