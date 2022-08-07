@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "Pong_functions.h"
+#include "../include/Pong_functions.h"
       
 int score(int score_left_player, int score_right_player) {
     if (score_left_player != 1 || score_right_player != 1) {

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "Pong_functions.h"
+#include "../include/Pong_functions.h"
 
 void CleanerScreen() {
     printf("\033[2J");
