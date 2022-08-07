@@ -88,20 +88,15 @@ void draw(int left_rocket, int right_rocket, int ball_x, int ball_y, int HEIGHT,
         for (int x = 0; x < WIDTH; ++x) {
             if ((y == 0 && x != 0 && x != WIDTH - 1) || (y == HEIGHT - 1 && x != 0 && x != WIDTH - 1)) {
                 printf("-");
-            }
-            else if (((x == 0 && y != 0 && y != HEIGHT - 1) || (x == WIDTH - 1 && y != 0 && y != HEIGHT - 1))) {
+            } else if (((x == 0 && y != 0 && y != HEIGHT - 1) || (x == WIDTH - 1 && y != 0 && y != HEIGHT - 1))) {
                 printf("|");
-            }
-            else if (x == 1 && (y == left_rocket || y == left_rocket + 1 || y == left_rocket + 2)) {
+            } else if (x == 1 && (y == left_rocket || y == left_rocket + 1 || y == left_rocket + 2)) {
                 printf("X");
-            }
-            else if (x == WIDTH - 2 && (y == right_rocket || y == right_rocket + 1 || y == right_rocket + 2)) {
+            } else if (x == WIDTH - 2 && (y == right_rocket || y == right_rocket + 1 || y == right_rocket + 2)) {
                 printf("X");
-            }
-            else if (x == ball_x && y != 0 && y == ball_y) {
+            } else if (x == ball_x && y != 0 && y == ball_y) {
                 printf("o");
-            }
-            else {
+            } else {
                 printf(" ");
             }
         }
