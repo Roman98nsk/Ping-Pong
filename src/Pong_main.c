@@ -14,7 +14,7 @@ int main() {
     int score_left_player = 0;
     int score_right_player = 0;
 
-    int left_rocket = 5;   //верхняя координата ракетки
+    int left_rocket = 5;
     int right_rocket = 5;
 
     int ball_x = 2;
