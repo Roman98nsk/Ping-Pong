@@ -38,16 +38,20 @@ void draw(int left_rocket, int right_rocket, int ball_x, int ball_y, int HEIGHT,
 }
 
 int score(int score_left_player, int score_right_player) {
-    if (score_left_player != 1 || score_right_player != 1) {
-        printf("\t\t%d : %d", score_left_player, score_right_player);
+    int part = 1;
+    if (score_left_player != 2 || score_right_player != 2) {
+        printf("\t\tPart %d", part);
+        printf("\n\t\t\033[1:32m%d : %d\033[0m", score_left_player, score_right_player);
         printf("\n    \"Left_player\" : \"Right_player\"\n");
     }
 
-    if (score_left_player == 1) {
+    if (score_left_player == 2) {
         printf("\n\033[1;32mCONGRATULATION!!! LEFT PLAYER IS WON. SCORE %d : %d.\033[0m\n\n", score_left_player, score_right_player);
+        part++;
         return 1;
-    } else if (score_right_player == 1) {
+    } else if (score_right_player == 2) {
         printf("\n\033[1;32mCONGRATULATION!!! RIGHT PLAYER IS WON. SCORE %d : %d.\033[0m\n\n", score_left_player, score_right_player);
+        part++;
         return 1;
     }
 return 0;

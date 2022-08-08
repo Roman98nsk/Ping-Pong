@@ -30,6 +30,7 @@ int main() {
         if (n == 1) {
             game(ball_x, ball_y, HEIGHT, WIDTH, vector_x, vector_y, left_rocket, right_rocket, score_right_player, score_left_player);
         } else {
+            printf("\033[32mGoodbye! Thank you for playing!\033[0m\n");
             return 0;
         }
     }
