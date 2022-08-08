@@ -53,41 +53,32 @@ int score(int score_left_player, int score_right_player) {
 return 0;
 }
 
-int management(int left_rocket, int right_rocket, int HEIGHT) {
-    char temp = getchar();
-            if (temp == 'q') {
-                printf("%s\n", "\033[3;31mGAME OVER!\033[0m");
-                return 0;
-            } else {
-                switch (temp) {
-                case 'a':
-                    (left_rocket != 1) ? (left_rocket -= 1) : left_rocket;
-                    break;
-                case 'z':
-                    left_rocket != HEIGHT - 4 ? left_rocket += 1 : left_rocket;
-                    break;
-                case 'k':
-                    (right_rocket != 1) ? (right_rocket -= 1) : right_rocket;
-                    break;
-                case 'm':
-                    right_rocket != HEIGHT - 4 ? right_rocket += 1 : right_rocket;
-                    break;
-                }
-}
-return 0;
-}
-
 int game(int ball_x, int ball_y, int HEIGHT, int WIDTH, int vector_x, int vector_y, int left_rocket, int right_rocket,
                                                                             int score_right_player, int score_left_player) {
-
     while (score_left_player != 1 || score_right_player != 1) {
         draw(left_rocket, right_rocket, ball_x, ball_y, HEIGHT, WIDTH);
-
         if (score(score_left_player, score_right_player) == 1)
             return 0;
-
-        management(left_rocket, right_rocket, HEIGHT);
-        
+        char temp = getchar();
+        if (temp == 'q') {
+            printf("%s\n", "\033[3;31mGAME OVER!\033[0m");
+            return 0;
+        } else {
+            switch (temp) {
+            case 'a':
+                (left_rocket != 1) ? (left_rocket -= 1) : left_rocket;
+                break;
+            case 'z':
+                left_rocket != HEIGHT - 4 ? left_rocket += 1 : left_rocket;
+                break;
+            case 'k':
+                (right_rocket != 1) ? (right_rocket -= 1) : right_rocket;
+                break;
+            case 'm':
+                right_rocket != HEIGHT - 4 ? right_rocket += 1 : right_rocket;
+                break;
+            }
+        }
         if (ball_y == 1 || ball_y == HEIGHT - 2) {
             vector_y = -(vector_y);
         }
@@ -103,6 +94,6 @@ int game(int ball_x, int ball_y, int HEIGHT, int WIDTH, int vector_x, int vector
         }
         ball_y += vector_y;
         ball_x += vector_x;
-        }
+    }
 return 0;
 }
