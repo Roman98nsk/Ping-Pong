@@ -7,7 +7,7 @@
       <li>For Unux system: $ git clone 'link-repository'.</li>
       <li>For Windows:</li>
     </ol>
-  <p color="red">Next step open directory "Ping-Pong":<br>
+  <p>Next step open directory "Ping-Pong":<br>
     <ol>
       <li>For Unix system: $ cd Ping-Pong.</li>
       <li>For Windows:</li>
