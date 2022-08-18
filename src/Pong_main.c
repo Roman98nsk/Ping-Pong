@@ -8,8 +8,8 @@ void CleanerScreen() {
 int main() {
     int n = 0;
 
-    int HEIGHT = 12;
-    int WIDTH = 40;
+    int HEIGHT = 0;
+    int WIDTH = 0;
 
     int score_left_player = 0;
     int score_right_player = 0;
@@ -21,6 +21,12 @@ int main() {
     int ball_y = 6;
     int vector_x = 1;
     int vector_y = 1;
+
+    mt_getscreensize(&HEIGHT, &WIDTH);
+    if (HEIGHT < 7) {
+        printf("\033[31mNeed share terminal!!!\033[0m\n");
+        return 0;
+    }
 
     game(ball_x, ball_y, HEIGHT, WIDTH, vector_x, vector_y, left_rocket, right_rocket, score_right_player, score_left_player);
 

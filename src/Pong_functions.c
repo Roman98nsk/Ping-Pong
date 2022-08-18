@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/ioctl.h>
 #include "../include/Pong_functions.h"
 
 void draw_menu() {
     CleanerScreen();
-
     printf("\033[34m ---------------------\n"
          "|         Menu        |\n"
          "|                     |\n"
-         "|  q - Quit           |\n"
+         "|  q - Quit/Restart   |\n"
          "|                     |\n"
          "|  a - Up for left    |\n"
          "|  z - Down for left  |\n"
@@ -19,8 +19,15 @@ void draw_menu() {
     printf("\n\n");
 }
 
+int mt_getscreensize(int *rows, int *cols) {
+    struct winsize ws;
+    ioctl(1, TIOCGWINSZ, &ws);
+    *rows = ws.ws_row - 5;
+    *cols = ws.ws_col;
+return 0;
+}
+
 void draw_area(int left_rocket, int right_rocket, int ball_x, int ball_y, int HEIGHT, int WIDTH) {
-    CleanerScreen();
     for (int y = 0; y < HEIGHT; ++y) {
         for (int x = 0; x < WIDTH; ++x) {
             if ((y == 0 && x != 0 && x != WIDTH - 1) || (y == HEIGHT - 1 && x != 0 && x != WIDTH - 1)) {
@@ -46,24 +53,24 @@ int score(int score_left_player, int score_right_player) {
     
     score_difference = abs(score_left_player - score_right_player);
 
-    if (score_left_player != 1 || score_right_player != 1) {
+    if (score_left_player != 2 || score_right_player != 2) {
         printf("\t\tGame %d"
         "\n\t\t\033[1:32m%d : %d\033[0m"
         "\n    \"Left_player\" : \"Right_player\"\n"
         "\t%d \t\t    %d\n", part, score_left_player, score_right_player, score_part_left_player, score_part_right_player);
     }
 
-    if ((score_left_player == 1 || score_left_player > 1) && score_difference >= 1) {
+    if ((score_left_player == 2 || score_left_player > 2) && score_difference >= 2) {
         printf("\n\033[1;32mLEFT PLAYER WON GAME!\nGAME SCORE %d : %d.\033[0m\n\n", score_left_player, score_right_player);
         part++;
         score_part_left_player++;
-    } else if ((score_right_player == 1 || score_right_player > 1) && score_difference >= 1) {
+    } else if ((score_right_player == 2 || score_right_player > 2) && score_difference >= 2) {
         printf("\n\033[1;32mRIGHT PLAYER WON GAME!\nGAME SCORE %d : %d.\033[0m\n\n", score_left_player, score_right_player);
         part++;
         score_part_right_player++;
     }
 
-    if (part > 1) {
+    if (part > 2) {
         printf("\033[1;32mTOTAL SCORE: %d : %d\033[0m\n", score_part_left_player, score_part_right_player);
         if (score_part_left_player > score_part_right_player) {
             printf("\n\033[1;32mCONGRATULATION!!! LEFT PLAYER CHAMPION!\033[0m\n\n");
@@ -111,11 +118,11 @@ int game(int ball_x, int ball_y, int HEIGHT, int WIDTH, int vector_x, int vector
         }
         if (ball_x == WIDTH - 3 && (ball_y == right_rocket - 1 || ball_y == right_rocket || ball_y == right_rocket + 1)) {
             vector_x = -(vector_x);
-        } else if (ball_x == 38 && (ball_y != right_rocket - 1 || ball_y != right_rocket || ball_y != right_rocket + 1)) {
+        } else if (ball_x == WIDTH - 2 && (ball_y != right_rocket - 1 || ball_y != right_rocket || ball_y != right_rocket + 1)) {
             score_left_player++;
         }
         ball_y += vector_y;
         ball_x += vector_x;
-    } while (score_left_player != 1 || score_right_player != 1);
+    } while (score_left_player != 2 || score_right_player != 2);
 return 0;
 }
