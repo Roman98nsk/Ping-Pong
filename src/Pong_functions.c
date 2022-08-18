@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "../include/Pong_functions.h"
 
-void draw(int left_rocket, int right_rocket, int ball_x, int ball_y, int HEIGHT, int WIDTH) {
+void draw_menu() {
     CleanerScreen();
 
     printf("\033[34m ---------------------\n"
@@ -16,7 +17,10 @@ void draw(int left_rocket, int right_rocket, int ball_x, int ball_y, int HEIGHT,
          "|  m - Down for right |\n"
          " ---------------------\033[0m");
     printf("\n\n");
+}
 
+void draw_area(int left_rocket, int right_rocket, int ball_x, int ball_y, int HEIGHT, int WIDTH) {
+    CleanerScreen();
     for (int y = 0; y < HEIGHT; ++y) {
         for (int x = 0; x < WIDTH; ++x) {
             if ((y == 0 && x != 0 && x != WIDTH - 1) || (y == HEIGHT - 1 && x != 0 && x != WIDTH - 1)) {
@@ -38,31 +42,45 @@ void draw(int left_rocket, int right_rocket, int ball_x, int ball_y, int HEIGHT,
 }
 
 int score(int score_left_player, int score_right_player) {
-    int part = 1;
-    if (score_left_player != 2 || score_right_player != 2) {
-        printf("\t\tPart %d", part);
-        printf("\n\t\t\033[1:32m%d : %d\033[0m", score_left_player, score_right_player);
-        printf("\n    \"Left_player\" : \"Right_player\"\n");
+    int part = 1, score_difference = 0, score_part_left_player = 0, score_part_right_player = 0;
+    
+    score_difference = abs(score_left_player - score_right_player);
+
+    if (score_left_player != 1 || score_right_player != 1) {
+        printf("\t\tGame %d"
+        "\n\t\t\033[1:32m%d : %d\033[0m"
+        "\n    \"Left_player\" : \"Right_player\"\n"
+        "\t%d \t\t    %d\n", part, score_left_player, score_right_player, score_part_left_player, score_part_right_player);
     }
 
-    if (score_left_player == 2) {
-        printf("\n\033[1;32mCONGRATULATION!!! LEFT PLAYER IS WON. SCORE %d : %d.\033[0m\n\n", score_left_player, score_right_player);
+    if ((score_left_player == 1 || score_left_player > 1) && score_difference >= 1) {
+        printf("\n\033[1;32mLEFT PLAYER WON GAME!\nGAME SCORE %d : %d.\033[0m\n\n", score_left_player, score_right_player);
         part++;
-        return 1;
-    } else if (score_right_player == 2) {
-        printf("\n\033[1;32mCONGRATULATION!!! RIGHT PLAYER IS WON. SCORE %d : %d.\033[0m\n\n", score_left_player, score_right_player);
+        score_part_left_player++;
+    } else if ((score_right_player == 1 || score_right_player > 1) && score_difference >= 1) {
+        printf("\n\033[1;32mRIGHT PLAYER WON GAME!\nGAME SCORE %d : %d.\033[0m\n\n", score_left_player, score_right_player);
         part++;
-        return 1;
+        score_part_right_player++;
+    }
+
+    if (part > 1) {
+        printf("\033[1;32mTOTAL SCORE: %d : %d\033[0m\n", score_part_left_player, score_part_right_player);
+        if (score_part_left_player > score_part_right_player) {
+            printf("\n\033[1;32mCONGRATULATION!!! LEFT PLAYER CHAMPION!\033[0m\n\n");
+        } else {
+            printf("\n\033[1;32mCONGRATULATION!!! RIGHT PLAYER CHAMPION!\033[0m\n\n");
+        }
+        return 0;
     }
 return 0;
 }
 
 int game(int ball_x, int ball_y, int HEIGHT, int WIDTH, int vector_x, int vector_y, int left_rocket, int right_rocket,
-                                                                            int score_right_player, int score_left_player) {
-    while (score_left_player != 1 || score_right_player != 1) {
-        draw(left_rocket, right_rocket, ball_x, ball_y, HEIGHT, WIDTH);
-        if (score(score_left_player, score_right_player) == 1)
-            return 0;
+                                                                        int score_right_player, int score_left_player) {
+    do {
+        draw_menu();
+        draw_area(left_rocket, right_rocket, ball_x, ball_y, HEIGHT, WIDTH);
+        score(score_left_player, score_right_player);
         char temp = getchar();
         if (temp == 'q') {
             printf("%s\n", "\033[3;31mGAME OVER!\033[0m");
@@ -98,6 +116,6 @@ int game(int ball_x, int ball_y, int HEIGHT, int WIDTH, int vector_x, int vector
         }
         ball_y += vector_y;
         ball_x += vector_x;
-    }
+    } while (score_left_player != 1 || score_right_player != 1);
 return 0;
 }
